@@ -1,16 +1,397 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="manifest" href="manifest.json">
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOW LIFE | Autos Planchados</title>
+<link rel="manifest" href="manifest.json">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: #111;
+      border-bottom: 2px solid #baff00;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .logo span {
+      color: #baff00;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #baff00;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px 20px;
+      background:
+        linear-gradient(#0009, #000c),
+        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 85px);
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 0 0 25px #baff0066;
+    }
+
+    .hero h1 span {
+      color: #baff00;
+    }
+
+    .hero p {
+      margin: 20px 0 30px;
+      font-size: 18px;
+      color: #ddd;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #baff00;
+      color: #080808;
+      font-weight: bold;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: white;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 75px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 35px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .section-title span {
+      color: #baff00;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #aaa;
+      margin-bottom: 40px;
+    }
+
+    .cars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+    }
+
+    .car-card {
+      background: #151515;
+      border: 1px solid #292929;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .car-card:hover {
+      transform: translateY(-8px);
+      border-color: #baff00;
+      box-shadow: 0 8px 30px #baff0015;
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .car-info {
+      padding: 22px;
+    }
+
+    .car-info h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .car-info p {
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      color: #baff00;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .about {
+      background: #121212;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 20px auto;
+      color: #bbb;
+      line-height: 1.9;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .stat h3 {
+      font-size: 35px;
+      color: #baff00;
+    }
+
+    .stat p {
+      margin: 5px 0;
+    }
+
+    .community {
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      background: #050505;
+      color: #888;
+      padding: 25px;
+      border-top: 1px solid #252525;
+    }
+
+    footer span {
+      color: #baff00;
+    }
+
+    #topBtn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: none;
+      padding: 13px 17px;
+      border: none;
+      background: #baff00;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 12px;
+      }
+
+      section {
+        padding: 55px 6%;
+      }
+
+      .stats {
+        gap: 25px;
+      }
+    }
+  </style>
 </head>
+
 <body>
- <h1>Logica</h1>   
-<h1>Programacion 1</h1>
-<h1>Informatica</h1>
+
+  <header>
+    <div class="logo">LOW<span>LIFE.</span></div>
+
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#autos">Autos</a>
+      <a href="#cultura">Cultura</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <h1>BAJO ES<br><span>OTRO NIVEL</span></h1>
+      <p>Autos planchados. Estilo único. Pasión sin límites.</p>
+      <a href="#autos" class="btn">VER LOS AUTOS</a>
+    </section>
+
+    <section id="autos">
+      <h2 class="section-title">LA <span>COLECCIÓN</span></h2>
+      <p class="subtitle">
+        Máquinas que viven a centímetros del suelo.
+      </p>
+
+      <div class="cars">
+
+        <article class="car-card">
+          <img
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"
+            alt="Auto deportivo modificado">
+          <div class="car-info">
+            <span class="tag">01 / DEPORTIVO</span>
+            <h3>Porsche Style</h3>
+            <p>Diseño agresivo, llantas únicas y una presencia que no pasa desapercibida.</p>
+          </div>
+        </article>
+
+        <article class="car-card">
+          <img
+            src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=800&q=80"
+            alt="Ford Mustang">
+          <div class="car-info">
+            <span class="tag">02 / MUSCLE</span>
+            <h3>Street Machine</h3>
+            <p>Estética callejera, líneas marcadas y personalidad de sobra.</p>
+          </div>
+        </article>
+
+        <article class="car-card">
+          <img
+            src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=800&q=80"
+            alt="Auto tuning">
+          <div class="car-info">
+            <span class="tag">03 / TUNING</span>
+            <h3>JDM Culture</h3>
+            <p>Inspiración japonesa, detalles personalizados y pasión por cada modificación.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="about" id="cultura">
+      <h2 class="section-title">MÁS QUE <span>UN AUTO</span></h2>
+
+      <p>
+        El mundo de los autos planchados es una cultura.
+        Cada llanta, cada detalle y cada modificación cuentan
+        una historia. No se trata solamente de bajar un auto,
+        sino de crear un estilo propio y compartir una pasión.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <h3>LOW</h3>
+          <p>Estilo</p>
+        </div>
+
+        <div class="stat">
+          <h3>100%</h3>
+          <p>Pasión</p>
+        </div>
+
+        <div class="stat">
+          <h3>REAL</h3>
+          <p>Cultura</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="community">
+      <h2 class="section-title">¿SOS PARTE DE <span>LA CULTURA?</span></h2>
+      <p class="subtitle">
+        La calle es nuestra inspiración. Los autos, nuestra pasión.
+      </p>
+
+      <button class="btn" id="loveBtn">
+        ¡VIVO POR LOS AUTOS!
+      </button>
+
+      <p id="message" style="margin-top: 25px; color: #baff00;"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 <span>LOW LIFE.</span> Hecho para los amantes del stance.</p>
+  </footer>
+
+  <button id="topBtn" aria-label="Volver arriba">↑</button>
+
+  <script>
+    // Mensaje interactivo
+    const loveBtn = document.getElementById("loveBtn");
+    const message = document.getElementById("message");
+
+    loveBtn.addEventListener("click", function() {
+      message.textContent =
+        "🔥 ¡La pasión por los autos nunca se apaga! 🔥";
+    });
+
+    // Botón para volver arriba
+    const topBtn = document.getElementById("topBtn");
+
+    window.addEventListener("scroll", function() {
+      topBtn.style.display =
+        window.scrollY > 300 ? "block" : "none";
+    });
+
+    topBtn.addEventListener("click", function() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    // Animación sencilla al cargar
+    window.addEventListener("load", function() {
+      document.body.style.opacity = "1";
+    });
+  </script>
 
 </body>
 </html>
